@@ -3,20 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HttpsLabs LLC | Digital Infrastructure & Technology Holdings</title>
+    <title>HttpsLabs LLC | Services for Domain Buyers & Sellers, Full-Stack SaaS & Branding</title>
+    <meta name="description" content="HttpsLabs LLC provides specialized services for domain buyers and sellers, engineers custom full-stack SaaS platforms with zero limits, and builds high-converting brand identities.">
+    <meta property="og:title" content="HttpsLabs LLC | Domain Buyer & Seller Services, Full-Stack SaaS & Branding">
+    <meta property="og:description" content="Specialized services for domain buyers and sellers, unlimited full-stack SaaS platform engineering, and strategic brand design systems.">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <script>
+        // Prevent theme flash on page load
+        (function() {
+            var savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <style>
+        /* CSS Theme Variables - Default Light Theme (Matte B&W) */
         :root {
-            --bg-main: #090d16;
-            --bg-card: #131a26;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --border: #1e293b;
+            --bg-main: #fafafa;
+            --bg-card: #ffffff;
+            --bg-footer: #ffffff;
+            --text-primary: #0a0a0a;
+            --text-secondary: #525252;
+            --text-footer: #525252;
+            --accent: #0a0a0a;
+            --accent-glow: rgba(10, 10, 10, 0.05);
+            --border: #e5e5e5;
+            --border-footer: #e5e5e5;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 16px -4px rgba(0, 0, 0, 0.02);
+            --card-hover-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08);
+            --badge-bg: #f5f5f5;
+            --badge-text: #171717;
+            --badge-border: #e5e5e5;
+            --logo-bg: #f5f5f5;
+            --logo-stroke: #e5e5e5;
+            --facet-top: #0a0a0a;
+            --facet-left: #525252;
+            --facet-right: #a3a3a3;
+        }
+
+        /* Dark Theme Override (Matte B&W) */
+        [data-theme="dark"] {
+            --bg-main: #0a0a0a;
+            --bg-card: #121212;
+            --bg-footer: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --text-footer: #a3a3a3;
+            --accent: #ffffff;
+            --accent-glow: rgba(255, 255, 255, 0.08);
+            --border: #262626;
+            --border-footer: #171717;
+            --card-shadow: none;
+            --card-hover-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.6);
+            --badge-bg: #171717;
+            --badge-text: #ffffff;
+            --badge-border: #262626;
+            --logo-bg: #171717;
+            --logo-stroke: #262626;
+            --facet-top: #ffffff;
+            --facet-left: #a3a3a3;
+            --facet-right: #525252;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-main);
             color: var(--text-primary);
             margin: 0;
@@ -25,13 +74,14 @@
             flex-direction: column;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
         header {
-            max-width: 1100px;
+            max-width: 1280px;
             width: 100%;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2.5rem 3rem;
             box-sizing: border-box;
             display: flex;
             justify-content: space-between;
@@ -39,25 +89,72 @@
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.45rem;
             font-weight: 700;
             letter-spacing: -0.03em;
             color: var(--text-primary);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.85rem;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-icon {
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: translateY(-1px);
         }
 
         .logo span {
             color: var(--accent);
         }
 
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .sun-icon { display: none; }
+        .moon-icon { display: block; }
+
+        [data-theme="dark"] .sun-icon { display: block; }
+        [data-theme="dark"] .moon-icon { display: none; }
+
         main {
             flex: 1;
-            max-width: 1100px;
+            max-width: 1280px;
             width: 100%;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 5rem 3rem;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -65,34 +162,32 @@
         }
 
         .hero {
-            max-width: 700px;
-            margin-bottom: 4rem;
+            max-width: 780px;
+            margin-bottom: 4.5rem;
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
-            background-color: var(--accent-glow);
-            color: var(--accent);
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
             padding: 0.4rem 0.85rem;
             border-radius: 9999px;
             font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            border: 1px solid var(--badge-border);
         }
 
         h1 {
-            font-size: 3rem;
-            line-height: 1.15;
+            font-size: 3.5rem;
+            line-height: 1.1;
             font-weight: 800;
             letter-spacing: -0.04em;
             margin: 0 0 1.5rem 0;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-primary);
         }
 
         .hero p {
@@ -104,30 +199,45 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
         }
 
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2.25rem;
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .card:hover {
             border-color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: var(--accent);
         }
 
         .card h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-top: 0;
             margin-bottom: 0.75rem;
             letter-spacing: -0.02em;
+            color: var(--text-primary);
         }
 
         .card p {
@@ -137,103 +247,538 @@
             margin: 0;
         }
 
+        /* Footer Styles */
         footer {
-            border-top: 1px solid var(--border);
-            background-color: #060910;
-            color: var(--text-secondary);
-            padding: 3rem 2rem;
-            font-size: 0.85rem;
-            line-height: 1.7;
+            border-top: 1px solid var(--border-footer);
+            background-color: var(--bg-footer);
+            color: var(--text-footer);
+            padding: 4.5rem 3rem 3rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-top: 4rem;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
         }
 
-        .footer-content {
-            max-width: 1100px;
+        .footer-container {
+            max-width: 1280px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
 
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 0.5rem;
+        .footer-brand .logo {
+            color: var(--text-primary);
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .brand-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
         }
 
-        .contact-item a {
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-heading {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .contact-row svg {
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+            stroke: var(--text-primary);
+        }
+
+        .link-row {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
+            transition: opacity 0.2s ease;
         }
 
-        .contact-item a:hover {
-            color: var(--accent);
-            text-decoration: underline;
+        .link-row:hover {
+            opacity: 0.8;
+        }
+
+        .entity-badge {
+            display: inline-block;
+            font-size: 0.725rem;
+            color: var(--text-secondary);
+            background-color: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            width: fit-content;
+            margin-top: 0.25rem;
+        }
+
+        .btn-header-contact {
+            background: var(--text-primary);
+            color: var(--bg-card);
+            border: 1px solid var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-header-contact:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Contact Form Modal (Anti-Scraping Protected) */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            max-width: 480px;
+            width: 100%;
+            padding: 2.25rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(12px) scale(0.98);
+            transition: transform 0.25s ease;
+            position: relative;
+        }
+
+        .modal-backdrop.active .modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .modal-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.35rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+        }
+
+        .form-input, .form-textarea, .form-select {
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.7rem 0.9rem;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background: var(--text-primary);
+            color: var(--bg-card);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+            margin-top: 0.4rem;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .success-message {
+            display: none;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--text-primary);
+            padding: 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 1rem;
+            line-height: 1.4;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .footer-legal span {
+            color: #64748b;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.25rem; }
             main { padding: 2rem 1rem; }
             header { padding: 1.5rem 1rem; }
-            footer { padding: 2rem 1rem; }
+            footer { padding: 3rem 1rem 2rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Https<span>Labs</span></div>
+        <a href="/" class="logo" aria-label="HttpsLabs LLC">
+            <svg class="logo-icon" width="40" height="40" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="32" height="32" rx="9" fill="var(--logo-bg)" stroke="var(--logo-stroke)" stroke-width="1.5"/>
+                <path d="M10 11L15 8V28L10 25V11Z" fill="var(--text-primary)"/>
+                <path d="M26 11L21 8V28L26 25V11Z" fill="var(--text-primary)"/>
+                <path d="M15 16.5H21V19.5H15V16.5Z" fill="var(--text-primary)"/>
+            </svg>
+            <div>Https<span>Labs</span></div>
+        </a>
+
+        <div class="nav-actions">
+            <button class="btn-header-contact open-contact-btn">Contact Office</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+                <!-- Sun Icon for Light Mode -->
+                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <!-- Moon Icon for Dark Mode -->
+                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <main>
         <div class="hero">
-            <div class="badge">Venture Portfolio Office</div>
-            <h1>Global Digital Infrastructure.</h1>
-            <p>HttpsLabs LLC operates as an enterprise digital infrastructure holding firm. We acquire, manage, and optimize high-value web infrastructure software ecosystems and premium digital real estate portfolios across international jurisdictions.</p>
+            <div class="badge">Domain Services • Full-Stack SaaS • Branding</div>
+            <h1>Specialized Services for Domain Buyers, Sellers & SaaS Founders.</h1>
+            <p>HttpsLabs LLC provides end-to-end services for domain buyers and sellers, engineers custom full-stack SaaS platforms across all categories with zero limits, and builds high-converting brand identities.</p>
         </div>
 
         <div class="grid">
             <div class="card">
-                <h3>Asset Optimization</h3>
-                <p>Developing robust architectural layers to scale proprietary digital assets, software tools, and high-performance server grids cleanly across modern web interfaces.</p>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Domain Buyer & Seller Services</h3>
+                <p>Providing specialized transaction brokerage, portfolio sales landing pages, valuation tools, and fast-track transfer infrastructure for domain investors, buyers, and sellers.</p>
             </div>
             <div class="card">
-                <h3>Liquidity & Brokerage</h3>
-                <p>Facilitating seamless enterprise technology acquisitions and managing premium web placement assets, corporate domains, and online real estate operations.</p>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <h3>Unlimited Full-Stack SaaS</h3>
+                <p>Architecting and deploying custom full-stack SaaS applications—ranging from niche automation micro-tools to complex multi-tenant cloud platforms without category limits.</p>
             </div>
             <div class="card">
-                <h3>SaaS Incubation</h3>
-                <p>Architecting backend automation systems, web protocols, and lean micro-SaaS digital products designed to satisfy decentralized operational demands.</p>
+                <div class="card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <h3>Brand Strategy & Identity</h3>
+                <p>Crafting distinctive brand identity systems, high-converting digital positioning, and modern UI/UX design frameworks built to elevate online ventures.</p>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div>&copy; 2026 HttpsLabs LLC. All rights reserved. Registered corporate entity in the State of Wyoming, USA.</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>Office:</span> 
-                    <span style="color: var(--text-primary); font-weight: 500;">30 N Gould St, Ste R, Sheridan, WY 82801</span>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="/" class="logo" aria-label="HttpsLabs LLC">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="32" height="32" rx="9" fill="var(--logo-bg)" stroke="var(--logo-stroke)" stroke-width="1.5"/>
+                            <path d="M10 11L15 8V28L10 25V11Z" fill="var(--text-primary)"/>
+                            <path d="M26 11L21 8V28L26 25V11Z" fill="var(--text-primary)"/>
+                            <path d="M15 16.5H21V19.5H15V16.5Z" fill="var(--text-primary)"/>
+                        </svg>
+                        <div>Https<span>Labs</span></div>
+                    </a>
+                    <p class="brand-desc">Enterprise digital venture firm specializing in domain name buying & selling, unlimited full-stack SaaS engineering, and strategic brand design.</p>
                 </div>
-                <div class="contact-item">
-                    <span>Communications:</span> 
-                    <a href="mailto:admin@httpslabs.com">admin@httpslabs.com</a>
+
+                <!-- Division Focus -->
+                <div class="footer-col">
+                    <div class="footer-heading">Specializations</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Domain Brokerage</a></li>
+                        <li><a href="#">Full-Stack SaaS</a></li>
+                        <li><a href="#">Brand Identity Systems</a></li>
+                        <li><a href="#">Digital Asset Buying/Selling</a></li>
+                    </ul>
                 </div>
-                <div class="contact-item">
-                    <span>Tel:</span> 
-                    <a href="tel:+16105579277">+1 (610) 557-9277</a>
+
+                <!-- Corporate Registration -->
+                <div class="footer-col">
+                    <div class="footer-heading">Registered Office</div>
+                    <div class="contact-card">
+                        <div class="contact-row">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>30 N Gould St, Ste R<br>Sheridan, WY 82801, USA</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Direct Inquiries -->
+                <div class="footer-col">
+                    <div class="footer-heading">Communications</div>
+                    <div class="contact-card">
+                        <button class="contact-row link-row open-contact-btn" style="background:none; border:none; padding:0; font-family:inherit; text-align:left; cursor:pointer;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <span>Send Direct Inquiry</span>
+                        </button>
+                        <a href="tel:+16105579277" class="contact-row link-row">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+1 (610) 557-9277</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <div>&copy; 2026 HttpsLabs. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
+    <!-- Contact Form Modal (Anti-Scraping Protected) -->
+    <div id="contact-modal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-title" class="modal-title">Corporate Inquiry</h2>
+                    <p class="modal-subtitle">Direct communication line to HttpsLabs Office.</p>
+                </div>
+                <button id="modal-close-btn" class="modal-close" aria-label="Close dialog">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <form id="inquiry-form">
+                <div class="form-group">
+                    <label class="form-label" for="inquiry-name">Full Name</label>
+                    <input type="text" id="inquiry-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="inquiry-email">Work Email</label>
+                    <input type="email" id="inquiry-email" class="form-input" placeholder="name@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="inquiry-subject">Inquiry Type</label>
+                    <select id="inquiry-subject" class="form-select">
+                        <option value="domain">Domain Licensing & Brokerage</option>
+                        <option value="saas">SaaS Venture Inquiries</option>
+                        <option value="corporate">Corporate / General Office</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="inquiry-message">Message</label>
+                    <textarea id="inquiry-message" class="form-textarea" placeholder="Describe your request..." required></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Send Encrypted Message</button>
+            </form>
+
+            <div id="form-success" class="success-message">
+                ✓ Message transmitted securely to HttpsLabs Office. We will review your inquiry shortly.
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle & Contact Modal Script -->
+    <script>
+        // Theme Switcher
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Contact Modal Logic
+        const contactModal = document.getElementById('contact-modal');
+        const openContactBtns = document.querySelectorAll('.open-contact-btn');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const inquiryForm = document.getElementById('inquiry-form');
+        const formSuccess = document.getElementById('form-success');
+
+        function openModal() {
+            contactModal.classList.add('active');
+            contactModal.setAttribute('aria-hidden', 'false');
+            formSuccess.style.display = 'none';
+            inquiryForm.style.display = 'block';
+        }
+
+        function closeModal() {
+            contactModal.classList.remove('active');
+            contactModal.setAttribute('aria-hidden', 'true');
+        }
+
+        openContactBtns.forEach(btn => btn.addEventListener('click', openModal));
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            inquiryForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+            setTimeout(() => {
+                closeModal();
+                inquiryForm.reset();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>

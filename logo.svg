@@ -1,0 +1,9 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Container Card -->
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="#0a0a0a" stroke="#262626" stroke-width="2.5"/>
+
+  <!-- Ultra-Simple Bold Geometric 'H' Monogram -->
+  <path d="M30 26L48 16V104L30 94V26Z" fill="#ffffff"/>
+  <path d="M90 26L72 16V104L90 94V26Z" fill="#ffffff"/>
+  <path d="M48 54H72V66H48V54Z" fill="#ffffff"/>
+</svg>
