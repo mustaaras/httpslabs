@@ -8,6 +8,8 @@
     <meta property="og:title" content="HttpsLabs LLC | Domain Buyer & Seller Services, Full-Stack SaaS & Branding">
     <meta property="og:description" content="Specialized services for domain buyers and sellers, unlimited full-stack SaaS platform engineering, and strategic brand design systems.">
     <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <!-- Cloudflare Turnstile Anti-Abuse Protection -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         // Prevent theme flash on page load
         (function() {
@@ -721,6 +723,8 @@
                     <label class="form-label" for="inquiry-message">Message</label>
                     <textarea id="inquiry-message" name="message" class="form-textarea" placeholder="Describe your request..." required></textarea>
                 </div>
+                <!-- Cloudflare Turnstile Anti-Abuse Widget (Replace data-sitekey with your Cloudflare Turnstile Key) -->
+                <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="auto" style="margin-bottom: 1rem;"></div>
                 <button type="submit" class="form-submit-btn">Send Message</button>
             </form>
 
