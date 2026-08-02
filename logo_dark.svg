@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0e0e0e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Canvas Background -->
+  <rect width="512" height="512" fill="#0a0a0a"/>
+  
+  <!-- Centered Logo Card Monogram -->
+  <g transform="translate(106, 50)">
+    <rect width="300" height="300" rx="75" fill="url(#bg-grad-dark)" stroke="#333333" stroke-width="6"/>
+    <path d="M75 65L120 40V260L75 235V65Z" fill="#ffffff"/>
+    <path d="M225 65L180 40V260L225 235V65Z" fill="#ffffff"/>
+    <path d="M120 135H180V165H120V135Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Centered Brand Text: httpsLabs -->
+  <text x="256" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="44" fill="#ffffff" letter-spacing="-1">https<tspan font-weight="400" fill="#a3a3a3">Labs</tspan></text>
+</svg>

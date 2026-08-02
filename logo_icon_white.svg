@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dcdcdc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White Canvas Background -->
+  <rect width="512" height="512" fill="#ffffff"/>
+  
+  <!-- Centered Icon Card Monogram (No Text) -->
+  <g transform="translate(86, 86)">
+    <rect width="340" height="340" rx="85" fill="url(#bg-grad-light)" stroke="#cccccc" stroke-width="7"/>
+    <path d="M85 73.66L136 45.33V294.66L85 266.33V73.66Z" fill="#0a0a0a"/>
+    <path d="M255 73.66L204 45.33V294.66L255 266.33V73.66Z" fill="#0a0a0a"/>
+    <path d="M136 153H204V187H136V153Z" fill="#0a0a0a"/>
+  </g>
+</svg>

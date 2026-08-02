@@ -1,0 +1,22 @@
+<svg width="1024" height="320" viewBox="0 0 1024 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0e0e0e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Canvas Background -->
+  <rect width="1024" height="320" fill="#0a0a0a"/>
+  
+  <!-- Left Side Icon Container (200x200) -->
+  <g transform="translate(80, 60)">
+    <rect width="200" height="200" rx="50" fill="url(#bg-grad-dark)" stroke="#333333" stroke-width="4"/>
+    <path d="M50 43.33L80 26.66V173.33L50 156.66V43.33Z" fill="#ffffff"/>
+    <path d="M150 43.33L120 26.66V173.33L150 156.66V43.33Z" fill="#ffffff"/>
+    <path d="M80 90H120V110H80V90Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Right Side Text: httpsLabs -->
+  <text x="310" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="96" fill="#ffffff" letter-spacing="-2">https<tspan font-weight="400" fill="#a3a3a3">Labs</tspan></text>
+</svg>
