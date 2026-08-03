@@ -11,7 +11,7 @@
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <script>
         // Prevent theme flash on page load - Default Dark Theme
         (function() {
@@ -24,6 +24,7 @@
         :root {
             --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
             --bg-main: #0a0a0a;
             --bg-card: #121212;
             --bg-footer: #050505;
@@ -271,15 +272,16 @@
             align-items: center;
             background-color: var(--badge-bg);
             color: var(--badge-text);
-            padding: 0.4rem 0.85rem;
+            padding: 0.45rem 0.9rem;
             border-radius: 9999px;
-            font-size: 0.775rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             border: 1px solid var(--badge-border);
             white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
@@ -295,7 +297,7 @@
             letter-spacing: -0.04em;
             margin: 0 0 1.5rem 0;
             color: var(--text-primary);
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
         }
 
         [data-theme="light"] h1 {
