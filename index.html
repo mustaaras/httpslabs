@@ -179,7 +179,7 @@
             box-sizing: border-box;
             overflow: hidden;
             background-color: var(--bg-main);
-            background: #0a0a0a url('hero-poster.jpg') center/cover no-repeat;
+            background: #0a0a0a url('hero-poster.jpg?v=frame8') center/cover no-repeat;
         }
 
         header {
@@ -790,6 +790,9 @@
         }
 
         @media (max-width: 768px) {
+            .hero-bg-video {
+                display: none !important;
+            }
             .hero-section {
                 min-height: 100vh;
                 min-height: 100dvh;
@@ -835,7 +838,7 @@
 
     <section class="hero-section">
         <!-- Full-Screen Background Video with HD Poster & iOS WebKit Support -->
-        <video id="hero-bg-video" class="hero-bg-video" src="the_finding_results_on_google.mp4" poster="hero-poster.jpg" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+        <video id="hero-bg-video" class="hero-bg-video" src="the_finding_results_on_google.mp4" poster="hero-poster.jpg?v=frame8" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
         <script>
             (function() {
                 var v = document.getElementById('hero-bg-video');
