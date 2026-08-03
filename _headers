@@ -2,10 +2,6 @@
   Accept-Ranges: bytes
   Cache-Control: no-transform, public, max-age=31536000, immutable
 
-/the_finding_results_on_google.mp4
-  Accept-Ranges: bytes
-  Cache-Control: no-transform, public, max-age=31536000, immutable
-
-/hero_video.mp4
+/hero_video_ios.mp4
   Accept-Ranges: bytes
   Cache-Control: no-transform, public, max-age=31536000, immutable
