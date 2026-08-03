@@ -1068,24 +1068,47 @@
             const inquiryForm = document.getElementById('inquiry-form');
             const formSuccess = document.getElementById('form-success');
 
-            // iOS WebKit Video Autoplay Engine
+            // iOS WebKit Video Autoplay Engine — Aggressive iOS Compatibility
             const heroBgVideo = document.querySelector('.hero-bg-video');
             if (heroBgVideo) {
+                // Force muted via both property AND attribute (iOS requires attribute)
                 heroBgVideo.muted = true;
                 heroBgVideo.defaultMuted = true;
+                heroBgVideo.setAttribute('muted', '');
                 heroBgVideo.playsInline = true;
+                heroBgVideo.setAttribute('playsinline', '');
+                heroBgVideo.setAttribute('webkit-playsinline', '');
 
-                const playVideo = function() {
+                function tryPlay() {
                     if (heroBgVideo.paused) {
-                        heroBgVideo.play().catch(function() {});
+                        var p = heroBgVideo.play();
+                        if (p !== undefined) {
+                            p.then(function() {
+                                // Playing successfully
+                            }).catch(function() {
+                                // Autoplay blocked — will retry on user interaction
+                            });
+                        }
                     }
-                };
+                }
 
-                playVideo();
+                // Try immediately
+                tryPlay();
 
-                // iOS Fallback triggers on touch, scroll or click
-                ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
-                    window.addEventListener(evt, playVideo, { once: true, passive: true });
+                // Also try when video data is ready (critical for iOS)
+                heroBgVideo.addEventListener('loadedmetadata', tryPlay, { once: true });
+                heroBgVideo.addEventListener('loadeddata', tryPlay, { once: true });
+                heroBgVideo.addEventListener('canplay', tryPlay, { once: true });
+                heroBgVideo.addEventListener('canplaythrough', tryPlay, { once: true });
+
+                // Retry after short delay (iOS sometimes needs a tick)
+                setTimeout(tryPlay, 100);
+                setTimeout(tryPlay, 500);
+                setTimeout(tryPlay, 1500);
+
+                // User interaction fallbacks (for iOS Low Power / restricted mode)
+                ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
+                    document.addEventListener(evt, tryPlay, { once: true, passive: true });
                 });
             }
 
