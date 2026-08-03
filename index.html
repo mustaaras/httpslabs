@@ -11,7 +11,7 @@
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <script>
         // Prevent theme flash on page load - Default Dark Theme
         (function() {
@@ -22,6 +22,8 @@
     <style>
         /* CSS Theme Variables - Default Dark Theme */
         :root {
+            --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
             --bg-main: #0a0a0a;
             --bg-card: #121212;
             --bg-footer: #050505;
@@ -71,7 +73,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+            font-family: var(--font-body);
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
             background-color: var(--bg-main);
             color: var(--text-primary);
             margin: 0;
@@ -81,6 +84,11 @@
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
             transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6, .hero h1, .logo, .service-title, .modal-title {
+            font-family: var(--font-heading);
+            letter-spacing: -0.025em;
         }
 
         header {
