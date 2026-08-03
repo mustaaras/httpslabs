@@ -227,6 +227,8 @@
             z-index: 1;
             pointer-events: none;
             opacity: 1;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .hero-video-overlay {
@@ -763,8 +765,8 @@
 <body>
 
     <section class="hero-section">
-        <!-- Full-Screen Background Video -->
-        <video class="hero-bg-video" autoplay loop muted playsinline aria-hidden="true" tabindex="-1">
+        <!-- Full-Screen Background Video with iOS WebKit Compatibility -->
+        <video class="hero-bg-video" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1">
             <source src="the_finding_results_on_google.mp4" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
@@ -983,11 +985,24 @@
             const inquiryForm = document.getElementById('inquiry-form');
             const formSuccess = document.getElementById('form-success');
 
-            // Ensure Hero Background Video plays muted without voice automatically
+            // Ensure Hero Background Video plays muted automatically on iOS WebKit & Low Power Mode
             const heroBgVideo = document.querySelector('.hero-bg-video');
             if (heroBgVideo) {
                 heroBgVideo.muted = true;
-                heroBgVideo.play().catch(() => {});
+                heroBgVideo.defaultMuted = true;
+                heroBgVideo.setAttribute('muted', '');
+                heroBgVideo.setAttribute('playsinline', '');
+                heroBgVideo.setAttribute('webkit-playsinline', '');
+                
+                const playVideo = function() {
+                    heroBgVideo.play().catch(function() {});
+                };
+                
+                playVideo();
+
+                // iOS Low Power Mode fallback: start video on first user interaction if blocked
+                document.addEventListener('touchstart', playVideo, { once: true });
+                document.addEventListener('scroll', playVideo, { once: true });
             }
 
             function openModal() {
