@@ -243,12 +243,16 @@
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
             height: 100%;
             z-index: 2;
             background: linear-gradient(180deg, rgba(250, 250, 250, 0.45) 0%, rgba(250, 250, 250, 0.25) 50%, rgba(250, 250, 250, 0.95) 100%);
             transition: background 0.25s ease;
             pointer-events: none;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
         }
 
         [data-theme="dark"] .hero-video-overlay {
@@ -999,24 +1003,18 @@
                 heroBgVideo.muted = true;
                 heroBgVideo.defaultMuted = true;
                 heroBgVideo.playsInline = true;
-                heroBgVideo.setAttribute('muted', '');
-                heroBgVideo.setAttribute('playsinline', '');
-                heroBgVideo.setAttribute('webkit-playsinline', '');
 
-                const forcePlay = function() {
+                const playVideo = function() {
                     if (heroBgVideo.paused) {
                         heroBgVideo.play().catch(function() {});
                     }
                 };
 
-                try {
-                    heroBgVideo.load();
-                    forcePlay();
-                } catch(e) {}
+                playVideo();
 
                 // iOS Fallback triggers on touch, scroll or click
                 ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
-                    window.addEventListener(evt, forcePlay, { once: true, passive: true });
+                    window.addEventListener(evt, playVideo, { once: true, passive: true });
                 });
             }
 
