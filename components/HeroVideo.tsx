@@ -42,7 +42,7 @@ export function HeroVideo() {
           {!useFallback && (
             <video
               ref={videoRef}
-              src="/hero_video.mp4"
+              src="/api/video"
               autoPlay
               muted
               loop
