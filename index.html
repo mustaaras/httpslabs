@@ -898,32 +898,35 @@
                 var v = document.getElementById('hero-bg-video');
                 if (!v) return;
 
+                // Force attributes via both HTML and JS properties for WebKit compatibility
                 v.muted = true;
                 v.defaultMuted = true;
                 v.playsInline = true;
+                v.setAttribute('muted', '');
+                v.setAttribute('playsinline', '');
+                v.setAttribute('webkit-playsinline', '');
 
-                function playVideo() {
+                function attemptPlay() {
                     var promise = v.play();
                     if (promise !== undefined) {
                         promise.catch(function() {
+                            // If iOS blocks initial execution, trigger on first user touch/scroll
                             var unlock = function() {
                                 v.play();
-                                ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+                                ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
                                     document.removeEventListener(evt, unlock);
                                 });
                             };
-                            ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+                            ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
                                 document.addEventListener(evt, unlock, { passive: true });
                             });
                         });
                     }
                 }
 
-                if (v.readyState >= 2) {
-                    playVideo();
-                } else {
-                    v.addEventListener('canplay', playVideo, { once: true });
-                }
+                // Force WebKit to begin network fetching immediately
+                v.load();
+                attemptPlay();
             })();
         </script>
         <div class="hero-video-overlay"></div>
