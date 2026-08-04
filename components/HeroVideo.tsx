@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -23,59 +24,46 @@ export function HeroVideo() {
     video.setAttribute('playsinline', 'true');
     video.setAttribute('webkit-playsinline', 'true');
 
-    // Programmatically trigger play for WebKit inline autoplay policy
-    const attemptPlay = () => {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.warn('Autoplay prevented on iOS:', error);
-        });
-      }
-    };
-
-    attemptPlay();
-
-    // Re-attempt playback on first user interaction if blocked by Low Power Mode
-    const handleTouchOrScroll = () => {
-      if (video.paused) {
-        attemptPlay();
-      }
-      window.removeEventListener('touchstart', handleTouchOrScroll);
-      window.removeEventListener('scroll', handleTouchOrScroll);
-    };
-
-    window.addEventListener('touchstart', handleTouchOrScroll, { passive: true });
-    window.addEventListener('scroll', handleTouchOrScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('touchstart', handleTouchOrScroll);
-      window.removeEventListener('scroll', handleTouchOrScroll);
-    };
+    // Programmatically trigger play and catch any restrictions (like Low Power Mode)
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.warn('Autoplay blocked (likely Low Power Mode/Safari policy). Falling back to WebP:', error);
+        setUseFallback(true);
+      });
+    }
   }, [mounted]);
 
   return (
     <div className="hero-video-container">
       {mounted && (
         <>
-          <video
-            ref={videoRef}
-            src="/hero_video.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/hero-poster.jpg"
-            className="hero-bg-video"
-            // @ts-ignore - webkit-playsinline for legacy WebKit/iOS versions
-            webkit-playsinline="true"
-          />
-          <img
-            src="/hero_video.webp"
-            alt=""
-            loading="eager"
-            className="hero-bg-webp"
-          />
+          {/* Native hardware-accelerated video (plays in normal battery mode) */}
+          {!useFallback && (
+            <video
+              ref={videoRef}
+              src="/hero_video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/hero-poster.jpg"
+              className="hero-bg-video"
+              // @ts-ignore - webkit-playsinline for legacy WebKit/iOS versions
+              webkit-playsinline="true"
+            />
+          )}
+
+          {/* Optimized WebP fallback (only loaded/rendered if video autoplay is blocked) */}
+          {useFallback && (
+            <img
+              src="/hero_video.webp"
+              alt=""
+              loading="eager"
+              className="hero-bg-webp-fallback"
+            />
+          )}
         </>
       )}
       <div className="hero-video-overlay"></div>
