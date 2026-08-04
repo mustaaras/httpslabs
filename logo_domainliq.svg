@@ -1,0 +1,16 @@
+<svg width="220" height="52" viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dl-grad" x1="0" y1="0" x2="0" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FACC15"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized 'd' icon with gradient -->
+  <g transform="translate(4, 2)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M 21 11 C 12.163 11 5 18.163 5 27 C 5 35.837 12.163 43 21 43 C 27.246 43 32.612 39.426 35.2 34.2 V 43 H 41 V 5 H 35.2 V 19.8 C 32.612 14.574 27.246 11 21 11 Z M 22 17 C 27.523 17 32 21.477 32 27 C 32 32.523 27.523 37 22 37 C 16.477 37 12 32.523 12 27 C 12 21.477 16.477 17 22 17 Z" fill="url(#dl-grad)"/>
+  </g>
+  <!-- Brand text domainliq -->
+  <text x="56" y="36" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="28" font-weight="800" letter-spacing="-0.035em">
+    <tspan fill="#FFFFFF">domain</tspan><tspan fill="#FACC15">liq</tspan>
+  </text>
+</svg>
