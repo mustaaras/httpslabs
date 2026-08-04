@@ -55,13 +55,13 @@ export function HeroVideo() {
             />
           )}
 
-          {/* Optimized WebP fallback (only loaded/rendered if video autoplay is blocked) */}
+          {/* Static poster fallback (only loaded/rendered if video autoplay is blocked) */}
           {useFallback && (
             <img
-              src="/hero_video.webp"
+              src="/hero-poster.jpg"
               alt=""
               loading="eager"
-              className="hero-bg-webp-fallback"
+              className="hero-bg-poster-fallback"
             />
           )}
         </>
