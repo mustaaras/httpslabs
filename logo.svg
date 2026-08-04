@@ -6,11 +6,11 @@
     </linearGradient>
   </defs>
 
-  <!-- High-Visibility Dark Card Canvas -->
-  <rect x="2" y="2" width="116" height="116" rx="24" fill="url(#logo-grad-fav)" stroke="#3b3b3b" stroke-width="2"/>
+  <!-- Balanced Dark Card Canvas -->
+  <rect x="4" y="4" width="112" height="112" rx="26" fill="url(#logo-grad-fav)" stroke="#383838" stroke-width="2"/>
 
-  <!-- Maximized Bold Geometric 'H' Monogram -->
-  <path d="M18 16L42 4V116L18 104V16Z" fill="#ffffff"/>
-  <path d="M102 16L78 4V116L102 104V16Z" fill="#ffffff"/>
-  <path d="M42 54H78V66H42V54Z" fill="#ffffff"/>
+  <!-- Perfectly Balanced 'H' Monogram -->
+  <path d="M24 22L45 10V110L24 98V22Z" fill="#ffffff"/>
+  <path d="M96 22L75 10V110L96 98V22Z" fill="#ffffff"/>
+  <path d="M45 54H75V66H45V54Z" fill="#ffffff"/>
 </svg>
