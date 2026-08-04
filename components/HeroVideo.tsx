@@ -1,17 +1,25 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     const video = videoRef.current;
     if (!video) return;
 
     // iOS Safari requires explicit DOM property initialization for muted & playsInline
     video.defaultMuted = true;
     video.muted = true;
+    video.playsInline = true;
     video.setAttribute('playsinline', 'true');
     video.setAttribute('webkit-playsinline', 'true');
 
@@ -19,8 +27,8 @@ export function HeroVideo() {
     const attemptPlay = () => {
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback if Low Power Mode or iOS policy restricts autoplay
+        playPromise.catch((error) => {
+          console.warn('Autoplay prevented on iOS:', error);
         });
       }
     };
@@ -43,12 +51,17 @@ export function HeroVideo() {
       window.removeEventListener('touchstart', handleTouchOrScroll);
       window.removeEventListener('scroll', handleTouchOrScroll);
     };
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) {
+    return <div className="hero-video-overlay"></div>;
+  }
 
   return (
     <>
       <video
         ref={videoRef}
+        src="/hero_video.mp4"
         autoPlay
         muted
         loop
@@ -58,11 +71,10 @@ export function HeroVideo() {
         className="hero-bg-video"
         // @ts-ignore - webkit-playsinline for legacy WebKit/iOS versions
         webkit-playsinline="true"
-      >
-        <source src="/hero_video.mp4" type="video/mp4" />
-      </video>
+      />
       <div className="hero-video-overlay"></div>
     </>
   );
 }
+
 

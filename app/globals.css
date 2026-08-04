@@ -710,6 +710,7 @@ footer {
 }
 
 .footer-brand { display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-brand .logo { font-size: 1.05rem; }
 .brand-desc { font-size: 0.775rem; color: var(--text-secondary); margin: 0; line-height: 1.45; max-width: 320px; }
 .footer-col { display: flex; flex-direction: column; gap: 0.45rem; }
 .footer-heading { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-primary); }
