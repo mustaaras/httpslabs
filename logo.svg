@@ -1,16 +1,16 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="logo-grad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logo-grad-fav" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#2a2a2a"/>
       <stop offset="100%" stop-color="#0e0e0e"/>
     </linearGradient>
   </defs>
 
-  <!-- Container Card with Gradient -->
-  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#logo-grad)" stroke="#333333" stroke-width="2.5"/>
+  <!-- High-Visibility Dark Card Canvas -->
+  <rect x="2" y="2" width="116" height="116" rx="24" fill="url(#logo-grad-fav)" stroke="#3b3b3b" stroke-width="2"/>
 
-  <!-- Ultra-Simple Bold Geometric 'H' Monogram -->
-  <path d="M30 26L48 16V104L30 94V26Z" fill="#ffffff"/>
-  <path d="M90 26L72 16V104L90 94V26Z" fill="#ffffff"/>
-  <path d="M48 54H72V66H48V54Z" fill="#ffffff"/>
+  <!-- Maximized Bold Geometric 'H' Monogram -->
+  <path d="M18 16L42 4V116L18 104V16Z" fill="#ffffff"/>
+  <path d="M102 16L78 4V116L102 104V16Z" fill="#ffffff"/>
+  <path d="M42 54H78V66H42V54Z" fill="#ffffff"/>
 </svg>
