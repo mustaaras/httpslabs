@@ -1,12 +1,9 @@
-# Coolify Nixpacks Configuration for Next.js 14
-[providers]
-providers = ["node"]
-
+# Coolify Nixpacks Configuration for Next.js
 [phases.setup]
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm ci --legacy-peer-deps || npm install"]
+cmds = ["npm install --legacy-peer-deps"]
 
 [phases.build]
 cmds = ["npm run build"]
