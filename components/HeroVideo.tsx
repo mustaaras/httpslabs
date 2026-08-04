@@ -53,27 +53,33 @@ export function HeroVideo() {
     };
   }, [mounted]);
 
-  if (!mounted) {
-    return <div className="hero-video-overlay"></div>;
-  }
-
   return (
-    <>
-      <video
-        ref={videoRef}
-        src="/hero_video.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/hero-poster.jpg"
-        className="hero-bg-video"
-        // @ts-ignore - webkit-playsinline for legacy WebKit/iOS versions
-        webkit-playsinline="true"
-      />
+    <div className="hero-video-container">
+      {mounted && (
+        <>
+          <video
+            ref={videoRef}
+            src="/hero_video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/hero-poster.jpg"
+            className="hero-bg-video"
+            // @ts-ignore - webkit-playsinline for legacy WebKit/iOS versions
+            webkit-playsinline="true"
+          />
+          <img
+            src="/hero_video.webp"
+            alt=""
+            loading="eager"
+            className="hero-bg-webp"
+          />
+        </>
+      )}
       <div className="hero-video-overlay"></div>
-    </>
+    </div>
   );
 }
 

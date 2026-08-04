@@ -198,6 +198,17 @@ header {
   background: #0a0a0a url('/hero-poster.jpg') center/cover no-repeat;
 }
 
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .hero-bg-video {
   position: absolute;
   top: 0;
@@ -210,6 +221,30 @@ header {
   display: block;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+}
+
+.hero-bg-webp {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-video {
+    display: none !important;
+  }
+  
+  .hero-bg-webp {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }
 
 .hero-video-overlay {
