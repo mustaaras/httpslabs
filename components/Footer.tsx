@@ -57,9 +57,7 @@ export function Footer({ onOpenContact }: FooterProps) {
             <p className="brand-desc">
               Enterprise digital venture firm specializing in domain name buying &amp; selling, full-stack SaaS engineering, and brand strategy.
             </p>
-            <Link href="/about" style={{ fontSize: '0.775rem', color: 'var(--text-primary)', fontWeight: 600, textDecoration: 'none' }}>
-              &rarr; Read Corporate Profile
-            </Link>
+
           </div>
 
           {/* Products Column */}

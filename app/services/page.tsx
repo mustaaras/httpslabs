@@ -236,6 +236,16 @@ export default function ServicesPage() {
         }}
         className="services-contact-section"
       >
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+          <div style={{ position: 'relative', width: '110px', height: '110px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--border)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+            <Image
+              src="/welcoming_team.png"
+              alt="httpsLabs welcoming team"
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+        </div>
         <span className="section-kicker" style={{ fontSize: '0.75rem' }}>Let's Build Together</span>
         <h2
           style={{
