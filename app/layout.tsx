@@ -86,7 +86,10 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('theme') || 'dark';
+                  var saved = localStorage.getItem('theme');
+                  if (!saved) {
+                    saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                  }
                   document.documentElement.setAttribute('data-theme', saved);
                 } catch (e) {}
               })();

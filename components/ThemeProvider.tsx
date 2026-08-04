@@ -19,7 +19,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = (localStorage.getItem('theme') as Theme) || 'dark';
+    let savedTheme = localStorage.getItem('theme') as Theme;
+    if (!savedTheme) {
+      savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
     setMounted(true);
