@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { ProtectedEmail } from '../contact/ProtectedEmail';
+
 
 export const metadata: Metadata = {
   title: 'Services & Engineering Capabilities',
@@ -78,7 +80,7 @@ export default function ServicesPage() {
         }}
         className="office-spotlight-grid"
       >
-        <div style={{ position: 'relative', width: '100%', height: '360px', borderRadius: '14px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+        <div className="office-spotlight-image-wrapper">
           <Image
             src="/simple_office_team.png"
             alt="httpsLabs team working in modern office"
@@ -177,7 +179,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div style={{ position: 'relative', width: '100%', height: '340px', borderRadius: '18px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+          <div className="office-spotlight-image-wrapper">
             <Image
               src="/simple_office_desk.png"
               alt="httpsLabs engineering workspace desk setup"
@@ -218,6 +220,125 @@ export default function ServicesPage() {
               Hands-on experience helping clients establish corporate business structures, entities, and international setups across different countries efficiently.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Direct Contact Action Section */}
+      <section
+        style={{
+          marginTop: '6rem',
+          padding: '3.5rem 2.5rem',
+          background: 'var(--bg-card)',
+          border: '1px solid var(--border)',
+          borderRadius: '24px',
+          boxShadow: 'var(--card-hover-shadow)',
+          textAlign: 'center',
+        }}
+        className="services-contact-section"
+      >
+        <span className="section-kicker" style={{ fontSize: '0.75rem' }}>Let's Build Together</span>
+        <h2
+          style={{
+            fontSize: '2.25rem',
+            fontWeight: 800,
+            color: 'var(--text-primary)',
+            margin: '0.5rem 0 1rem 0',
+            lineHeight: 1.2,
+          }}
+        >
+          Have a Project or Inquiry?
+        </h2>
+        <p
+          style={{
+            fontSize: '1.05rem',
+            color: 'var(--text-secondary)',
+            maxWidth: '640px',
+            margin: '0 auto 2.5rem auto',
+            lineHeight: 1.6,
+          }}
+        >
+          Reach out directly to the httpsLabs LLC office. Whether you need a premium domain name, custom full-stack SaaS engineering, or global payment setups, we are here to execute.
+        </p>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '1.25rem',
+            flexWrap: 'wrap',
+          }}
+          className="services-contact-links"
+        >
+          {/* WhatsApp - Primary Action */}
+          <a
+            href="https://wa.me/16105579277"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-btn whatsapp-btn"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              background: 'var(--text-primary)',
+              color: 'var(--bg-card)',
+              border: '1px solid var(--text-primary)',
+              padding: '0.85rem 1.75rem',
+              borderRadius: '12px',
+              fontWeight: 700,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              transition: 'transform 0.2s ease, opacity 0.2s ease',
+              boxShadow: 'var(--card-hover-shadow)',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+            <span>WhatsApp Business</span>
+          </a>
+
+          {/* Protected Email */}
+          <div
+            className="contact-btn email-btn-container"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              border: '1px solid var(--border)',
+              background: 'var(--bg-main)',
+              padding: '0.8rem 1.75rem',
+              borderRadius: '12px',
+              transition: 'background 0.2s ease, transform 0.2s ease',
+              cursor: 'pointer',
+            }}
+          >
+            <ProtectedEmail label="Contact Email" />
+          </div>
+
+          {/* Phone */}
+          <a
+            href="tel:+16105579277"
+            className="contact-btn phone-btn"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              border: '1px solid var(--border)',
+              background: 'var(--bg-main)',
+              color: 'var(--text-primary)',
+              padding: '0.85rem 1.75rem',
+              borderRadius: '12px',
+              fontWeight: 600,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              transition: 'background 0.2s ease, transform 0.2s ease',
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>+1 (610) 557-9277</span>
+          </a>
         </div>
       </section>
     </main>

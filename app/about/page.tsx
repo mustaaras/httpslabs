@@ -97,7 +97,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div style={{ position: 'relative', width: '100%', height: '360px', borderRadius: '14px', overflow: 'hidden', border: '1px solid var(--border)' }}>
+        <div className="office-spotlight-image-wrapper">
           <Image
             src="/simple_office_team.png"
             alt="httpsLabs engineering studio team"

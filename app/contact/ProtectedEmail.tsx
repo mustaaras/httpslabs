@@ -2,7 +2,11 @@
 
 import React from 'react';
 
-export function ProtectedEmail() {
+interface ProtectedEmailProps {
+  label?: string;
+}
+
+export function ProtectedEmail({ label }: ProtectedEmailProps) {
   const handleClick = () => {
     const user = atob('YWRtaW4=');
     const domain = atob('aHR0cHNsYWJzLmNvbQ==');
@@ -12,7 +16,7 @@ export function ProtectedEmail() {
   return (
     <div
       onClick={handleClick}
-      title="Click to send email"
+      title={label || "Click to send email"}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -36,21 +40,25 @@ export function ProtectedEmail() {
         <rect width="20" height="16" x="2" y="4" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
-      <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-        <img
-          src="/email_admin_dark.png"
-          alt="admin"
-          className="logo-dark-theme"
-          style={{ height: '16px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
-        />
-        <img
-          src="/email_admin_light.png"
-          alt="admin"
-          className="logo-light-theme"
-          style={{ height: '16px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
-        />
-        <span style={{ marginLeft: '1px' }}>@httpslabs.com</span>
-      </span>
+      {label ? (
+        <span>{label}</span>
+      ) : (
+        <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+          <img
+            src="/email_admin_dark.png"
+            alt="admin"
+            className="logo-dark-theme"
+            style={{ height: '16px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
+          />
+          <img
+            src="/email_admin_light.png"
+            alt="admin"
+            className="logo-light-theme"
+            style={{ height: '16px', width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
+          />
+          <span style={{ marginLeft: '1px' }}>@httpslabs.com</span>
+        </span>
+      )}
     </div>
   );
 }
