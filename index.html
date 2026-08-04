@@ -927,6 +927,8 @@
                 // Force WebKit to begin network fetching immediately
                 v.load();
                 attemptPlay();
+
+                document.addEventListener('DOMContentLoaded', attemptPlay);
             })();
         </script>
         <div class="hero-video-overlay"></div>
