@@ -891,14 +891,13 @@
     <section class="hero-section">
         <!-- Full-Screen Background Video with HD Poster & iOS WebKit Support -->
         <video id="hero-bg-video" class="hero-bg-video" autoplay muted playsinline loop poster="hero-poster.jpg?v=scene10_95" webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1">
-            <source src="the_finding_results_on_google.mp4" type='video/mp4; codecs="avc1.4D401E"'>
+            <source src="the_finding_results_on_google.mp4" type='video/mp4; codecs="avc1.4D401F"'>
         </video>
         <script>
             (function() {
                 var v = document.getElementById('hero-bg-video');
                 if (!v) return;
 
-                // Force attributes via both HTML and JS properties for WebKit compatibility
                 v.muted = true;
                 v.defaultMuted = true;
                 v.playsInline = true;
@@ -906,29 +905,37 @@
                 v.setAttribute('playsinline', '');
                 v.setAttribute('webkit-playsinline', '');
 
-                function attemptPlay() {
-                    var promise = v.play();
-                    if (promise !== undefined) {
-                        promise.catch(function() {
-                            // If iOS blocks initial execution, trigger on first user touch/scroll
-                            var unlock = function() {
-                                v.play();
-                                ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
-                                    document.removeEventListener(evt, unlock);
-                                });
-                            };
-                            ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
-                                document.addEventListener(evt, unlock, { passive: true });
-                            });
-                        });
+                function tryPlay() {
+                    var p = v.play();
+                    if (p !== undefined) {
+                        p.catch(function() {});
                     }
                 }
 
-                // Force WebKit to begin network fetching immediately
-                v.load();
-                attemptPlay();
+                // Try as soon as data buffers
+                v.addEventListener('loadeddata', tryPlay);
+                v.addEventListener('canplay', tryPlay);
+                v.addEventListener('canplaythrough', tryPlay);
 
-                document.addEventListener('DOMContentLoaded', attemptPlay);
+                // Force network load and immediate play
+                v.load();
+                tryPlay();
+
+                // Fallback on first interaction
+                var unlock = function() {
+                    tryPlay();
+                    ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
+                        document.removeEventListener(evt, unlock);
+                    });
+                };
+                ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
+                    document.addEventListener(evt, unlock, { passive: true });
+                });
+
+                // Safety for tab switching
+                document.addEventListener('visibilitychange', function() {
+                    if (!document.hidden) tryPlay();
+                });
             })();
         </script>
         <div class="hero-video-overlay"></div>
