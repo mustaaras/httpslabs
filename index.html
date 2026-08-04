@@ -869,29 +869,42 @@
 
     <section class="hero-section">
         <!-- Full-Screen Background Video with HD Poster & iOS WebKit Support -->
-        <video id="hero-bg-video" class="hero-bg-video" src="the_finding_results_on_google.mp4" poster="hero-poster.jpg?v=scene10_95" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+        <video id="hero-bg-video" class="hero-bg-video" src="the_finding_results_on_google.mp4" poster="hero-poster.jpg?v=scene10_95" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
         <script>
             (function() {
                 var v = document.getElementById('hero-bg-video');
-                if (v) {
-                    v.muted = true;
-                    v.defaultMuted = true;
-                    v.playsInline = true;
-                    var p = v.play();
-                    if (p !== undefined) {
-                        p.catch(function() {
-                            var unlock = function() {
-                                v.play();
-                                document.removeEventListener('touchstart', unlock);
-                                document.removeEventListener('touchend', unlock);
-                                document.removeEventListener('scroll', unlock);
-                            };
-                            document.addEventListener('touchstart', unlock, {passive: true});
-                            document.addEventListener('touchend', unlock, {passive: true});
-                            document.addEventListener('scroll', unlock, {passive: true});
-                        });
+                if (!v) return;
+
+                v.muted = true;
+                v.defaultMuted = true;
+                v.setAttribute('muted', '');
+                v.playsInline = true;
+                v.setAttribute('playsinline', '');
+                v.setAttribute('webkit-playsinline', '');
+                v.setAttribute('x5-playsinline', '');
+
+                function tryPlay() {
+                    if (v.paused) {
+                        var p = v.play();
+                        if (p !== undefined) {
+                            p.catch(function() {
+                                // iOS blocked it, we'll retry on next interaction
+                            });
+                        }
                     }
                 }
+
+                tryPlay();
+
+                var events = ['touchstart', 'touchend', 'touchmove', 'scroll', 'click', 'pointerdown', 'wheel'];
+                events.forEach(function(evt) {
+                    document.addEventListener(evt, tryPlay, { once: true, passive: true });
+                });
+
+                setTimeout(tryPlay, 100);
+                setTimeout(tryPlay, 500);
+                setTimeout(tryPlay, 1000);
+                setTimeout(tryPlay, 2000);
             })();
         </script>
         <div class="hero-video-overlay"></div>
