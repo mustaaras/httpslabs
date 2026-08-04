@@ -18,5 +18,5 @@
   </g>
 
   <!-- Centered Brand Text: httpsLabs -->
-  <text x="256" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="44" fill="#ffffff" letter-spacing="-1">https<tspan font-weight="400" fill="#a3a3a3">Labs</tspan></text>
+  <text x="256" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="44" fill="#ffffff" letter-spacing="-1.5">https<tspan font-weight="400" fill="#ffffff" opacity="0.72">Labs</tspan></text>
 </svg>

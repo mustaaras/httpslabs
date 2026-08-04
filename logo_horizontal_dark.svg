@@ -18,5 +18,5 @@
   </g>
 
   <!-- Right Side Text: httpsLabs -->
-  <text x="310" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="96" fill="#ffffff" letter-spacing="-2">https<tspan font-weight="400" fill="#a3a3a3">Labs</tspan></text>
+  <text x="310" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="96" fill="#ffffff" letter-spacing="-3">https<tspan font-weight="400" fill="#ffffff" opacity="0.72">Labs</tspan></text>
 </svg>
