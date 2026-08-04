@@ -890,7 +890,7 @@
 
     <section class="hero-section">
         <!-- Full-Screen Background Video with HD Poster & iOS WebKit Support -->
-        <video id="hero-bg-video" class="hero-bg-video" autoplay muted playsinline loop poster="hero-poster.jpg?v=scene10_95" webkit-playsinline x5-playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+        <video id="hero-bg-video" class="hero-bg-video" autoplay muted playsinline loop poster="hero-poster.jpg?v=scene10_95" webkit-playsinline x5-playsinline preload="auto" aria-hidden="true" tabindex="-1">
             <source src="the_finding_results_on_google.mp4" type="video/mp4">
         </video>
         <script>
@@ -900,34 +900,30 @@
 
                 v.muted = true;
                 v.defaultMuted = true;
-                v.setAttribute('muted', '');
                 v.playsInline = true;
-                v.setAttribute('playsinline', '');
-                v.setAttribute('webkit-playsinline', '');
-                v.setAttribute('x5-playsinline', '');
 
-                function tryPlay() {
-                    if (v.paused) {
-                        var p = v.play();
-                        if (p !== undefined) {
-                            p.catch(function() {
-                                // iOS blocked it, we'll retry on next interaction
+                function playVideo() {
+                    var promise = v.play();
+                    if (promise !== undefined) {
+                        promise.catch(function() {
+                            var unlock = function() {
+                                v.play();
+                                ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+                                    document.removeEventListener(evt, unlock);
+                                });
+                            };
+                            ['touchstart', 'touchend', 'scroll', 'click'].forEach(function(evt) {
+                                document.addEventListener(evt, unlock, { passive: true });
                             });
-                        }
+                        });
                     }
                 }
 
-                tryPlay();
-
-                var events = ['touchstart', 'touchend', 'touchmove', 'scroll', 'click', 'pointerdown', 'wheel'];
-                events.forEach(function(evt) {
-                    document.addEventListener(evt, tryPlay, { once: true, passive: true });
-                });
-
-                setTimeout(tryPlay, 100);
-                setTimeout(tryPlay, 500);
-                setTimeout(tryPlay, 1000);
-                setTimeout(tryPlay, 2000);
+                if (v.readyState >= 2) {
+                    playVideo();
+                } else {
+                    v.addEventListener('canplay', playVideo, { once: true });
+                }
             })();
         </script>
         <div class="hero-video-overlay"></div>
@@ -1165,49 +1161,7 @@
             const formSuccess = document.getElementById('form-success');
             const formError = document.getElementById('form-error');
 
-            // iOS WebKit Video Autoplay Engine — Aggressive iOS Compatibility
-            const heroBgVideo = document.querySelector('.hero-bg-video');
-            if (heroBgVideo) {
-                // Force muted via both property AND attribute (iOS requires attribute)
-                heroBgVideo.muted = true;
-                heroBgVideo.defaultMuted = true;
-                heroBgVideo.setAttribute('muted', '');
-                heroBgVideo.playsInline = true;
-                heroBgVideo.setAttribute('playsinline', '');
-                heroBgVideo.setAttribute('webkit-playsinline', '');
 
-                function tryPlay() {
-                    if (heroBgVideo.paused) {
-                        var p = heroBgVideo.play();
-                        if (p !== undefined) {
-                            p.then(function() {
-                                // Playing successfully
-                            }).catch(function() {
-                                // Autoplay blocked — will retry on user interaction
-                            });
-                        }
-                    }
-                }
-
-                // Try immediately
-                tryPlay();
-
-                // Also try when video data is ready (critical for iOS)
-                heroBgVideo.addEventListener('loadedmetadata', tryPlay, { once: true });
-                heroBgVideo.addEventListener('loadeddata', tryPlay, { once: true });
-                heroBgVideo.addEventListener('canplay', tryPlay, { once: true });
-                heroBgVideo.addEventListener('canplaythrough', tryPlay, { once: true });
-
-                // Retry after short delay (iOS sometimes needs a tick)
-                setTimeout(tryPlay, 100);
-                setTimeout(tryPlay, 500);
-                setTimeout(tryPlay, 1500);
-
-                // User interaction fallbacks (for iOS Low Power / restricted mode)
-                ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'].forEach(function(evt) {
-                    document.addEventListener(evt, tryPlay, { once: true, passive: true });
-                });
-            }
 
             function openModal() {
                 contactModal.classList.add('active');
