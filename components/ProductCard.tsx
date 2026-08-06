@@ -6,7 +6,7 @@ export function ProductCard() {
   return (
     <div className="product-card">
       <div className="product-body">
-        <div className="domainliq-brand-header">
+        <div className="domainliq-brand-header" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
           <a
             href="https://domainliq.com"
             target="_blank"
@@ -27,6 +27,15 @@ export function ProductCard() {
               className="domainliq-exact-logo-img logo-light-theme"
             />
           </a>
+          <span
+            className="badge badge-warning"
+            style={{
+              fontSize: '0.675rem',
+              padding: '0.25rem 0.65rem',
+            }}
+          >
+            Under Construction
+          </span>
         </div>
         <div className="product-tagline">
           Premium Domain Liquidation Marketplace

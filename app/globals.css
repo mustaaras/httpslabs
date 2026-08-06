@@ -288,6 +288,18 @@ header {
   letter-spacing: 0.06em;
 }
 
+.badge-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="light"] .badge-warning {
+  background-color: rgba(217, 119, 6, 0.08);
+  color: #b45309;
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
 .hero h1 {
   font-size: 3.5rem;
   font-weight: 800;
