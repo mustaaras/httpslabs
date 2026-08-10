@@ -612,7 +612,8 @@ main {
   transform: translateY(-1px);
 }
 
-.domainliq-exact-logo-img {
+.domainliq-exact-logo-img,
+.foundgg-exact-logo-img {
   height: 44px;
   width: auto;
   max-width: 100%;
@@ -620,11 +621,15 @@ main {
   object-fit: contain;
 }
 
-.domainliq-exact-logo-img.logo-dark-theme { display: block; }
-.domainliq-exact-logo-img.logo-light-theme { display: none; }
+.domainliq-exact-logo-img.logo-dark-theme,
+.foundgg-exact-logo-img.logo-dark-theme { display: block; }
+.domainliq-exact-logo-img.logo-light-theme,
+.foundgg-exact-logo-img.logo-light-theme { display: none; }
 
-[data-theme="light"] .domainliq-exact-logo-img.logo-dark-theme { display: none; }
-[data-theme="light"] .domainliq-exact-logo-img.logo-light-theme { display: block; }
+[data-theme="light"] .domainliq-exact-logo-img.logo-dark-theme,
+[data-theme="light"] .foundgg-exact-logo-img.logo-dark-theme { display: none; }
+[data-theme="light"] .domainliq-exact-logo-img.logo-light-theme,
+[data-theme="light"] .foundgg-exact-logo-img.logo-light-theme { display: block; }
 
 .product-tagline {
   font-size: 1.05rem;

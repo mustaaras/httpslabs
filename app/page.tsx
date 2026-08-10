@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroVideo } from '@/components/HeroVideo';
 import { ProductCard } from '@/components/ProductCard';
+import { FoundGGCard } from '@/components/FoundGGCard';
 import { ClientShowcaseCard } from '@/components/ClientShowcaseCard';
 
 export default function HomePage() {
@@ -133,6 +134,7 @@ export default function HomePage() {
 
           <div className="product-grid">
             <ProductCard />
+            <FoundGGCard />
             <ClientShowcaseCard />
           </div>
         </section>

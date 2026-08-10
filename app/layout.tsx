@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'httpsLabs LLC', url: 'https://httpslabs.com' }],
   creator: 'httpsLabs LLC',
   publisher: 'httpsLabs LLC',
+  alternates: {
+    canonical: 'https://httpslabs.com',
+  },
   robots: {
     index: true,
     follow: true,
@@ -94,6 +97,35 @@ export default function RootLayout({
                 } catch (e) {}
               })();
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://httpslabs.com/#organization',
+                  name: 'httpsLabs LLC',
+                  url: 'https://httpslabs.com',
+                  logo: 'https://httpslabs.com/domainliq_logo_transparent.png',
+                  sameAs: ['https://twitter.com/httpsLabsLLC'],
+                  description:
+                    'Enterprise digital venture firm specializing in domain name buying & selling, full-stack SaaS engineering, and brand strategy.',
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': 'https://httpslabs.com/#website',
+                  url: 'https://httpslabs.com',
+                  name: 'httpsLabs LLC',
+                  publisher: {
+                    '@id': 'https://httpslabs.com/#organization',
+                  },
+                },
+              ],
+            }),
           }}
         />
       </head>

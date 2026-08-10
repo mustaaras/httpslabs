@@ -1,17 +1,18 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { ProductCard } from '@/components/ProductCard';
+import { FoundGGCard } from '@/components/FoundGGCard';
 import { ClientShowcaseCard } from '@/components/ClientShowcaseCard';
 
 export const metadata: Metadata = {
   title: 'Products & Client Showcase',
-  description: 'Proprietary digital asset trading platforms, SaaS software, and client venture builds engineered by httpsLabs LLC, including domainliq.com and letsdreamforever.com.',
+  description: 'Proprietary digital asset trading platforms, SaaS software, and client venture builds engineered by httpsLabs LLC, including domainliq.com, found.gg, and letsdreamforever.com.',
   alternates: {
     canonical: 'https://httpslabs.com/products',
   },
   openGraph: {
     title: 'Products & Client Showcase | httpsLabs LLC',
-    description: 'Explore proprietary platforms and client web builds engineered by httpsLabs LLC, including domainliq.com and letsdreamforever.com.',
+    description: 'Explore proprietary platforms and client web builds engineered by httpsLabs LLC, including domainliq.com, found.gg, and letsdreamforever.com.',
     url: 'https://httpslabs.com/products',
     siteName: 'httpsLabs LLC',
     type: 'website',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Products & Client Showcase | httpsLabs LLC',
-    description: 'Explore proprietary platforms and client web builds engineered by httpsLabs LLC, including domainliq.com and letsdreamforever.com.',
+    description: 'Explore proprietary platforms and client web builds engineered by httpsLabs LLC, including domainliq.com, found.gg, and letsdreamforever.com.',
     site: '@httpsLabsLLC',
     images: ['/domainliq_logo_transparent.png'],
   },
@@ -65,6 +66,9 @@ export default function ProductsPage() {
       <div className="product-grid">
         {/* Flagship Proprietary Product: domainliq.com */}
         <ProductCard />
+
+        {/* Discovery Hub Venture: found.gg */}
+        <FoundGGCard />
 
         {/* Client Venture Build: letsdreamforever.com */}
         <ClientShowcaseCard />
