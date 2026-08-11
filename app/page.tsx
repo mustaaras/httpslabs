@@ -1,8 +1,14 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { HeroVideo } from '@/components/HeroVideo';
 import { ProductCard } from '@/components/ProductCard';
 import { FoundGGCard } from '@/components/FoundGGCard';
 import { ClientShowcaseCard } from '@/components/ClientShowcaseCard';
+
+export const metadata: Metadata = {
+  title: 'Websites & Custom Platform Engineering for Founders',
+  description: 'We build responsive websites, custom full-stack SaaS platforms, and complete payment/domain infrastructure setups for founders with zero limits.',
+};
 
 export default function HomePage() {
   return (
@@ -12,13 +18,13 @@ export default function HomePage() {
         <div className="hero-content-wrapper">
           <div className="hero">
             <div className="badge-group">
-              <span className="badge">DOMAIN BROKERAGE</span>
-              <span className="badge">FULL-STACK SAAS</span>
-              <span className="badge">BRAND STRATEGY</span>
+              <span className="badge">STARTER WEBSITES</span>
+              <span className="badge">CUSTOM PLATFORMS / SAAS</span>
+              <span className="badge">FULL INFRASTRUCTURE</span>
             </div>
-            <h1>Specialized Services for Domain Buyers, Sellers &amp; SaaS Founders.</h1>
+            <h1>We build websites and custom platforms for founders.</h1>
             <p>
-              httpsLabs LLC provides end-to-end services for domain buyers and sellers, engineers custom full-stack SaaS platforms across all categories with zero limits, and builds high-converting brand identities.
+              httpsLabs LLC builds responsive websites, custom full-stack SaaS platforms, and completes payment and domain infrastructure setups for founders with zero technical limits.
             </p>
           </div>
         </div>
@@ -43,10 +49,10 @@ export default function HomePage() {
         {/* Services Section */}
         <section id="services" className="services-section">
           <div className="section-header">
-            <span className="section-kicker">Core Capabilities</span>
-            <h2 className="section-title">Services &amp; Practice Areas</h2>
+            <span className="section-kicker">Core Packages</span>
+            <h2 className="section-title">Services &amp; Build Packages</h2>
             <p className="section-subtitle">
-              End-to-end expertise in acquiring premium digital real estate, engineering web platforms, and establishing corporate identities.
+              From simple websites to complete SaaS products with infrastructure and custom hosting options.
             </p>
           </div>
 
@@ -69,9 +75,9 @@ export default function HomePage() {
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                 </svg>
               </div>
-              <h3>Domain Brokerage &amp; Acquisition</h3>
+              <h3>Starter Website</h3>
               <p>
-                Strategic domain acquisition, valuation, portfolio liquidation, and stealth negotiations for high-value digital real estate.
+                Modern responsive websites, basic presentation pages, contact forms, and foundational SEO setups.
               </p>
             </div>
 
@@ -92,9 +98,9 @@ export default function HomePage() {
                   <polyline points="8 6 2 12 8 18" />
                 </svg>
               </div>
-              <h3>Full-Stack SaaS Engineering</h3>
+              <h3>Custom Platform / SaaS</h3>
               <p>
-                Building resilient web applications, cloud architecture, and marketplace engines tailored for high scalability and throughput.
+                Full Next.js/React applications with custom admin dashboards, user authentication, database, and VPS cloud hosting.
               </p>
             </div>
 
@@ -114,9 +120,9 @@ export default function HomePage() {
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
               </div>
-              <h3>Brand Strategy &amp; Identity</h3>
+              <h3>Full Build Package</h3>
               <p>
-                Creating cohesive corporate brand systems, modern design languages, and digital presence for emerging tech ventures.
+                End-to-end platform execution including Stripe payment system, subscription billing, domain routing, and priority support.
               </p>
             </div>
           </div>

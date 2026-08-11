@@ -5,13 +5,13 @@ import { ProtectedEmail } from './ProtectedEmail';
 
 export const metadata: Metadata = {
   title: 'Contact & Corporate Inquiry',
-  description: 'Direct contact communication channel to httpsLabs LLC office. Get in touch for domain brokerage, full-stack SaaS engineering, or corporate inquiries.',
+  description: 'Direct contact communication channel to httpsLabs LLC office. Get in touch for custom website builds, full-stack SaaS engineering, or platform inquiries.',
   alternates: {
     canonical: 'https://httpslabs.com/contact',
   },
   openGraph: {
     title: 'Contact & Corporate Inquiry | httpsLabs LLC',
-    description: 'Reach out to httpsLabs LLC directly for domain brokerage, full-stack SaaS engineering, or corporate inquiries.',
+    description: 'Reach out to httpsLabs LLC directly for custom website builds, full-stack SaaS engineering, or platform inquiries.',
     url: 'https://httpslabs.com/contact',
     siteName: 'httpsLabs LLC',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact & Corporate Inquiry | httpsLabs LLC',
-    description: 'Reach out to httpsLabs LLC directly for domain brokerage, full-stack SaaS engineering, or corporate inquiries.',
+    description: 'Reach out to httpsLabs LLC directly for custom website builds, full-stack SaaS engineering, or platform inquiries.',
     site: '@httpsLabsLLC',
     images: ['/domainliq_logo_transparent.png'],
   },
@@ -59,7 +59,7 @@ export default function ContactPage() {
             lineHeight: 1.6,
           }}
         >
-          Have a project in mind, need domain acquisition guidance, or want to discuss full-stack SaaS engineering? Reach out directly to httpsLabs LLC.
+          Have a project in mind, need custom website builds, or want to discuss full-stack platform engineering? Reach out directly to httpsLabs LLC.
         </p>
       </div>
 

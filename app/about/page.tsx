@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About Us & Corporate Profile',
-  description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, full-stack SaaS platforms, and brand strategy systems.',
+  description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, engineering custom full-stack SaaS platforms, and deploying website and payment infrastructures.',
   alternates: {
     canonical: 'https://httpslabs.com/about',
   },
   openGraph: {
     title: 'About Us & Corporate Profile | httpsLabs LLC',
-    description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, full-stack SaaS platforms, and brand strategy systems.',
+    description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, engineering custom full-stack SaaS platforms, and deploying website and payment infrastructures.',
     url: 'https://httpslabs.com/about',
     siteName: 'httpsLabs LLC',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About Us & Corporate Profile | httpsLabs LLC',
-    description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, full-stack SaaS platforms, and brand strategy systems.',
+    description: 'Learn about httpsLabs LLC — an enterprise digital venture firm operating domain marketplaces, engineering custom full-stack SaaS platforms, and deploying website and payment infrastructures.',
     site: '@httpsLabsLLC',
     images: ['/simple_office_team.png'],
   },
@@ -59,7 +59,7 @@ export default function AboutPage() {
             lineHeight: 1.65,
           }}
         >
-          httpsLabs LLC is an enterprise digital venture firm operating proprietary domain marketplaces, engineering custom full-stack SaaS platforms, and guiding global clients through strategic brand positioning.
+          httpsLabs LLC is an enterprise digital venture firm operating proprietary domain marketplaces, engineering custom full-stack SaaS platforms, and deploying complete website and payment infrastructures.
         </p>
       </div>
 
@@ -125,7 +125,7 @@ export default function AboutPage() {
             </div>
             <h3>10+ Years Domain Strategy</h3>
             <p>
-              Deep industry relationships and secondary market intelligence to identify, negotiate, and transfer the exact premium domain name for your business model.
+              Deep industry relationships and secondary market expertise to secure premium digital real estate and configure correct DNS and routing setups.
             </p>
           </div>
 
@@ -133,9 +133,9 @@ export default function AboutPage() {
             <div className="card-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             </div>
-            <h3>Zero-Limit Full-Stack SaaS</h3>
+            <h3>Custom Platform Engineering</h3>
             <p>
-              Custom web application engineering from high-converting landing pages to complex multi-tenant SaaS platforms built with Next.js, React, and TypeScript.
+              Engineering custom web applications, user authentication (OAuth), databases, and admin dashboards using React, Next.js, and TypeScript.
             </p>
           </div>
 
@@ -143,9 +143,9 @@ export default function AboutPage() {
             <div className="card-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>Strict Confidentiality &amp; Escrow</h3>
+            <h3>Modern &amp; Controlled Infrastructure</h3>
             <p>
-              All buyer and seller negotiations are protected by corporate non-disclosure agreements and processed via bank-grade escrow services.
+              We deploy using efficient, production-ready systems (Hetzner + Coolify) so you keep full ownership of your stack. Enterprise-grade setups are available on AWS or Vercel upon request.
             </p>
           </div>
         </div>
