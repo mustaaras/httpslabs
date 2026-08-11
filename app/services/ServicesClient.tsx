@@ -190,7 +190,7 @@ export function ServicesClient() {
               <span className="pricing-card-best-for">Best For: Founders who need a real product</span>
               <h3>Custom Platform / SaaS</h3>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.25rem 0 1rem 0' }}>
-                Full web application, Admin panel, Authentication (Google OAuth), Database, Deployment on Hetzner + Coolify, Transactional emails
+                Full web application, Admin panel, Authentication (Google OAuth), Database, Dedicated VPS hosting deployment, Transactional emails
               </p>
               <div className="pricing-card-price">
                 <span className="price-amount">Starting from $5,900</span>
@@ -217,11 +217,11 @@ export function ServicesClient() {
                 </li>
                 <li>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>Deployment on Hetzner + Coolify</span>
+                  <span>Dedicated VPS hosting deployment</span>
                 </li>
                 <li>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>Transactional emails (Resend / Brevo)</span>
+                  <span>Custom transactional email setups</span>
                 </li>
                 <li>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -343,8 +343,8 @@ export function ServicesClient() {
       >
         <div style={{ position: 'relative', height: '420px', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border)' }}>
           <Image
-            src="/simple_office_team.png"
-            alt="httpsLabs team collaborating in modern office space"
+            src="/simple_office_desk.png"
+            alt="httpsLabs developer desktop workspace setup"
             fill
             style={{ objectFit: 'cover' }}
             priority
@@ -379,7 +379,7 @@ export function ServicesClient() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                 <span>Modern &amp; Controlled Infrastructure</span>
               </h4>
-              <p>We deploy using efficient, production-ready systems (Hetzner + Coolify) so you keep full ownership of your stack. Enterprise-grade setups available on AWS upon request.</p>
+              <p>We deploy using efficient, production-ready VPS systems so you keep full ownership of your stack. Enterprise-grade setups available on AWS upon request.</p>
             </div>
           </div>
         </div>
@@ -479,7 +479,7 @@ export function ServicesClient() {
               What tech stack do you use?
             </h3>
             <p style={{ fontSize: '0.975rem', color: 'var(--text-secondary)', lineHeight: 1.65, margin: 0 }}>
-              We mainly use Next.js, TypeScript, PostgreSQL, and deploy on Hetzner + Coolify. We can also work with AWS, Vercel, or other cloud providers depending on your needs.
+              We mainly use Next.js, TypeScript, PostgreSQL, and deploy on dedicated VPS servers. We can also work with AWS, Vercel, or other cloud providers depending on your needs.
             </p>
           </div>
 

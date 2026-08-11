@@ -145,7 +145,7 @@ export default function AboutPage() {
             </div>
             <h3>Modern &amp; Controlled Infrastructure</h3>
             <p>
-              We deploy using efficient, production-ready systems (Hetzner + Coolify) so you keep full ownership of your stack. Enterprise-grade setups are available on AWS or Vercel upon request.
+              We deploy using efficient, production-ready VPS systems so you keep full ownership of your stack. Enterprise-grade setups are available on AWS or Vercel upon request.
             </p>
           </div>
         </div>

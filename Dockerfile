@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for Next.js Standalone Build on Coolify / Hetzner
+# Multi-stage Dockerfile for Next.js Standalone Build
 FROM node:20-alpine AS base
 
 # Phase 1: Install dependencies
