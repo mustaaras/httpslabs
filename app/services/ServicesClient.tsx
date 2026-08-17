@@ -79,7 +79,7 @@ export function ServicesClient() {
             Get a Free Consultation
           </button>
           <a
-            href="https://wa.me/16105579277"
+            href="https://wa.me/19292734008"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-btn whatsapp-btn"
@@ -561,7 +561,7 @@ export function ServicesClient() {
           className="services-contact-links"
         >
           <a
-            href="https://wa.me/16105579277"
+            href="https://wa.me/19292734008"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-btn whatsapp-btn"
@@ -617,7 +617,7 @@ export function ServicesClient() {
         }}
       >
         <a
-          href="https://wa.me/16105579277"
+          href="https://wa.me/19292734008"
           target="_blank"
           rel="noopener noreferrer"
           className="floating-action-button floating-whatsapp"

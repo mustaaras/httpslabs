@@ -142,7 +142,7 @@ export function Footer({ onOpenContact }: FooterProps) {
                 </svg>
                 <span>Send Direct Inquiry</span>
               </Link>
-              <a href="tel:+16105579277" className="contact-row link-row">
+              <a href="tel:+19292734008" className="contact-row link-row">
                 <svg
                   width="15"
                   height="15"
@@ -155,7 +155,7 @@ export function Footer({ onOpenContact }: FooterProps) {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span>+1 (610) 557-9277</span>
+                <span>+1 (929) 273-4008</span>
               </a>
             </div>
           </div>
@@ -177,7 +177,7 @@ export function Footer({ onOpenContact }: FooterProps) {
           <div className="footer-social-links">
             {/* WhatsApp (First) */}
             <a
-              href="https://wa.me/16105579277"
+              href="https://wa.me/19292734008"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-social-icon-link"

@@ -126,7 +126,7 @@ export function ContactForm() {
 
       {status === 'error' && (
         <div style={{ color: '#ef4444', fontSize: '0.85rem', marginBottom: '1rem' }}>
-          An error occurred submitting your inquiry. Please try again or call +1 (610) 557-9277.
+          An error occurred submitting your inquiry. Please try again or call +1 (929) 273-4008.
         </div>
       )}
 
