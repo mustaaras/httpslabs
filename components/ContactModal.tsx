@@ -168,7 +168,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   marginBottom: '1rem',
                 }}
               >
-                An error occurred sending your message. Please try again or call +1 (929) 273-4008.
+                An error occurred sending your message. Please try again or call +1 (610) 557-9277.
               </div>
             )}
 
