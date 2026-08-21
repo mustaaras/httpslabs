@@ -747,8 +747,46 @@ footer {
 .footer-col { display: flex; flex-direction: column; gap: 0.45rem; }
 .footer-heading { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-primary); }
 .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.775rem; }
-.footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.775rem; transition: color 0.2s ease; }
-.footer-links a:hover { color: var(--text-primary); }
+.footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.775rem; transition: all 0.2s ease; display: inline-flex; align-items: center; }
+.footer-links a:hover { color: var(--text-primary); transform: translateX(2px); }
+
+/* Slick Products List */
+.footer-products-list { display: flex; flex-direction: column; gap: 0.45rem; }
+.footer-product-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.28rem 0.55rem 0.28rem 0.55rem;
+  margin-left: -0.55rem;
+  border-radius: 6px;
+  color: var(--text-secondary) !important;
+  font-size: 0.785rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform: none !important;
+}
+.footer-product-link:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-card);
+  border-color: var(--border);
+  transform: translateX(3px) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.footer-product-arrow {
+  opacity: 0.35;
+  transition: transform 0.2s ease, opacity 0.2s ease, stroke 0.2s ease;
+  stroke: var(--text-secondary);
+}
+.footer-product-link:hover .footer-product-arrow {
+  opacity: 1;
+  stroke: var(--text-primary);
+  transform: translate(1px, -1px);
+}
+
 .contact-card { display: flex; flex-direction: column; gap: 0.4rem; }
 .contact-row { display: flex; align-items: flex-start; gap: 0.45rem; color: var(--text-secondary); font-size: 0.775rem; line-height: 1.4; }
 .contact-row svg { margin-top: 0.1rem; flex-shrink: 0; stroke: var(--text-primary); }
