@@ -108,28 +108,6 @@ export function Footer({ onOpenContact }: FooterProps) {
                   </svg>
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://reginsta.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-product-link"
-                >
-                  <span>reginsta.com</span>
-                  <svg
-                    className="footer-product-arrow"
-                    width="11"
-                    height="11"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                  </svg>
-                </a>
-              </li>
             </ul>
           </div>
 
