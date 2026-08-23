@@ -130,7 +130,8 @@ export default function ContactPage() {
           >
             <div className="section-kicker" style={{ fontSize: '0.7rem', marginBottom: '0.5rem' }}>Direct Communication Channels</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <ProtectedEmail />
+              <ProtectedEmail email="sales@httpslabs.com" />
+              <ProtectedEmail email="support@httpslabs.com" />
 
               <a
                 href="tel:+16105579277"
