@@ -111,6 +111,8 @@ export default function RootLayout({
                   name: 'httpsLabs LLC',
                   url: 'https://httpslabs.com',
                   logo: 'https://httpslabs.com/domainliq_logo_transparent.png',
+                  telephone: '+1-610-557-9277',
+                  faxNumber: '+1-307-357-4942',
                   sameAs: ['https://twitter.com/httpsLabsLLC'],
                   description:
                     'Enterprise digital venture firm specializing in domain name buying & selling, full-stack SaaS engineering, and brand strategy.',
